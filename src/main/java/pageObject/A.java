@@ -6,7 +6,7 @@ abstract void meth();
  class B extends A {
     void meth()
     {
-        System.out.println("hellogffdhf");
+        System.out.println("hellojdfhkjf");
     }
 }
 class C {
