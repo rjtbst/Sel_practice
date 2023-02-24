@@ -9,7 +9,10 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pageObject.HomePageObject;
+import pageObject.PracticeFormPageObject;
 import pageObject.RegistrationFormPage;
+
+import java.time.Duration;
 
 public class BaseTest extends ObjectsRepo {
     public static WebDriver driver;
@@ -30,13 +33,18 @@ public class BaseTest extends ObjectsRepo {
         }
         driver.get(url);
         driver.manage().window().maximize();
+       // driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(3));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
     }
     @BeforeMethod
     public static void testSetup(){
     launchAndNavigate();
-    homePage = new HomePageObject();
-        System.out.println("home: "+homePage);
-        registrationPage = new RegistrationFormPage();
+        homePage = new HomePageObject();
+        practiceForm = new PracticeFormPageObject();
+        //registrationPage = new RegistrationFormPage();
+        homePage.closePopup();
+        homePage.clickOnPractice();
+
     }
     @AfterMethod
     public static void tearDown(){
