@@ -32,14 +32,14 @@ public class BaseTest extends ObjectsRepo {
         driver.manage().window().maximize();
     }
     @BeforeMethod
-    private static void testSetup(){
+    public static void testSetup(){
     launchAndNavigate();
     homePage = new HomePageObject();
         System.out.println("home: "+homePage);
         registrationPage = new RegistrationFormPage();
     }
     @AfterMethod
-    private static void tearDown(){
+    public static void tearDown(){
         driver.quit();
     }
 
