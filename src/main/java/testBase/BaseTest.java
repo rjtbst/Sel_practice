@@ -38,12 +38,14 @@ public class BaseTest extends ObjectsRepo {
     }
     @BeforeMethod
     public static void testSetup(){
-    launchAndNavigate();
+        launchAndNavigate();
         homePage = new HomePageObject();
         practiceForm = new PracticeFormPageObject();
         //registrationPage = new RegistrationFormPage();
         homePage.closePopup();
         homePage.clickOnPractice();
+        practiceForm.clickOnElementsBtn();
+        practiceForm.clickOnTextBox();
 
     }
     @AfterMethod
