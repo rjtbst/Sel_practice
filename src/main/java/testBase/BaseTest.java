@@ -6,8 +6,8 @@ import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import pageObject.HomePageObject;
 import pageObject.PracticeFormPageObject;
 import pageObject.RegistrationFormPage;
@@ -36,7 +36,7 @@ public class BaseTest extends ObjectsRepo {
        // driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(3));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
     }
-    @BeforeMethod
+    @BeforeTest
     public static void testSetup(){
         launchAndNavigate();
         homePage = new HomePageObject();
@@ -48,7 +48,7 @@ public class BaseTest extends ObjectsRepo {
         practiceForm.clickOnTextBox();
 
     }
-    @AfterMethod
+    @AfterTest
     public static void tearDown(){
         driver.quit();
     }

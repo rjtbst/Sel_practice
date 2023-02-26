@@ -1,12 +1,11 @@
 package testingBaba;
 import com.utils.zerocell.ReadExcel;
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import testBase.BaseTest;
 
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -18,8 +17,12 @@ public class PracticeFormTest extends BaseTest {
 
     @DataProvider
     public Object[][] getFormData(){return ReadExcel.getTestData("td_formToTxt","Sheet1");}
-//    @BeforeTest
-//   public static void clearFormData(){   ;}
+
+
+    @AfterMethod
+    public static void before(){
+    practiceForm.clearFormData();
+}
     @Test(dataProvider = "getFormData")
     public void verifyTextBox(String name, String email, String cAdd, String pAdd) {
         practiceForm.enterFullName(name);
@@ -31,7 +34,11 @@ public class PracticeFormTest extends BaseTest {
         String expectedName = allText.get(0);
         String expectedEmail = allText.get(1);
         String expectedCAdd = allText.get(2);
-        System.out.println(allText);
-        practiceForm.clearFormData();
+        String expectedPAdd = allText.get(3);
+        Assert.assertEquals(name,expectedName);
+        Assert.assertEquals(email,expectedEmail);
+        Assert.assertEquals(cAdd,expectedCAdd);
+        Assert.assertEquals(pAdd,expectedPAdd);
+
     }
 }
