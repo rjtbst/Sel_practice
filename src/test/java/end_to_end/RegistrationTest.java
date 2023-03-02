@@ -8,7 +8,7 @@ import testBase.BaseTest;
 public class RegistrationTest extends BaseTest {
     @Test
     public void checkStatus(){
-        homePage.closePopup();
+        home_page.closePopup();
 
 //     Object[][] testData = ReadExcel.getTestData("td_status", "sheet1");
 //    //first time
