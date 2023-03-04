@@ -7,37 +7,44 @@ import testBase.BaseTest;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PracticeFormPageObject extends BaseTest {
+public class PracticePageObject extends BaseTest {
+    public PracticePageObject(){
+        PageFactory.initElements(driver,this);
+    }
+   //------------------textBox----------------------//
    @FindBy(xpath = "//div[@id=\"elements-accordion\"]//button[@data-target='#elements']")
     WebElement btn_Elements;
-
     @FindBy(xpath = "//*[@id=\"v-pills-tab\"]/a[text()='text box']")
-     WebElement btn_TextBox;
-
+   WebElement btn_TextBox;
+    @FindBy(xpath = "//div[@id='bannertitle']")
+   WebElement txt_bannerTitle;
     @FindBy(xpath = "//form//input[@id='fullname1']")
-    WebElement inp_fullName;
-
+   WebElement inp_fullName;
     @FindBy(xpath = "//form//input[@id='fullemail1']")
-    WebElement inp_email;
-
+   WebElement inp_email;
     @FindBy(xpath = "//form//textarea[@id='fulladdresh1']")
-    WebElement inp_currentAddress;
-
+   WebElement inp_currentAddress;
     @FindBy(xpath = "//form//textarea[@id='paddresh1']")
-    WebElement inp_permAddress;
-
+   WebElement inp_permAddress;
     @FindBy(xpath="//div[@class='col-md-6 mt-5']/label")
     List<WebElement> txtList_AfterRegistered;
-
     @FindBy(xpath = "//*[@type='button' and @value='Submit']")
     WebElement inp_submitBtn;
+    //----------------checkbox element--------------------------------------//
+    @FindBy(xpath = "//a[text()='check box']")
+    WebElement btn_checkBox;
 
+    @FindBy(xpath="//div/label/following-sibling::input[@type='checkbox']")
+    List<WebElement> checkBoxes;
     public void clickOnElementsBtn(){
       btn_Elements.click();
     }
-
     public void clickOnTextBox(){
         btn_TextBox.click();
+    }
+
+    public String getBannerTitle(){
+     return txt_bannerTitle.getText();
     }
     public void enterFullName(String name){
         inp_fullName.sendKeys(name);
@@ -68,7 +75,14 @@ public class PracticeFormPageObject extends BaseTest {
      inp_currentAddress.clear();
      inp_permAddress.clear();
     }
-    public PracticeFormPageObject(){
-        PageFactory.initElements(driver,this);
+    public void clickOnCheckBox(){
+     btn_checkBox.click();
     }
+    public void selectBothCheckbox(){
+     //check if visible then click on both
+     for(WebElement ch: checkBoxes){
+      ch.click();}
+    }
+
+
 }

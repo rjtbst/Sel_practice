@@ -1,4 +1,4 @@
-package com.utils.zerocell;
+package com.utils.dataFeeder;
 
 import com.creditdatamw.zerocell.annotation.Column;
 
@@ -15,7 +15,6 @@ public class TestData_Status {
                 "status='" + status + '\'' +
                 ", expectedStatus='" + expectedStatus + '\'' +
                 '}';
-
     }
 
     public String getStatus() {
