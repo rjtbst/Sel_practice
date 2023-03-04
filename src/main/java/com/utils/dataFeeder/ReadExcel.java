@@ -1,6 +1,7 @@
 package com.utils.dataFeeder;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -10,11 +11,12 @@ public final class ReadExcel {
     private ReadExcel() {}
 
     public static Object[][] getTestData(String FILE_NAME, String SHEET_NAME) {
-        XSSFWorkbook book;
-        XSSFSheet sheet;
+        Workbook book;
+        Sheet sheet;
+        String path = FILE_NAME + ".xlsx";
         try {
-            FileInputStream file = new FileInputStream(FILE_NAME);
-             book = new XSSFWorkbook(file);
+            FileInputStream file = new FileInputStream(path);
+            book = WorkbookFactory.create(file);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
