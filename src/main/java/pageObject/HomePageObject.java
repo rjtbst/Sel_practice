@@ -9,23 +9,25 @@ public class HomePageObject extends BaseTest {
     public HomePageObject() {
         PageFactory.initElements(driver,this);
     }
+
     @FindBy(xpath = "//a[contains(text(),'Register Now')]")
-    private WebElement btn_registerNow;
+     WebElement btn_registerNow;
 
     @FindBy(xpath="//div[@class='modal-content']//button[@class='close']")
-    private WebElement btn_modalClose;
+    WebElement btn_modalClose;
 
    @FindBy(xpath="//nav//ul//li//a[text()='Practice']")
-   private WebElement anc_Practice;
+   WebElement nav_Practice;
    public void clickOnRegisterNow(){
        btn_registerNow.click();
    }
 
      public void closePopup(){
+      // driver.switchTo().alert();
        btn_modalClose.click();
      }
 
-     public void clickOnPractice(){
-       anc_Practice.click();
+     public  void clickOnPractice(){
+       nav_Practice.click();
      }
 }
