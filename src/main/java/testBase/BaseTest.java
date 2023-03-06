@@ -8,6 +8,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
+
 import pageObject.HomePageObject;
 import pageObject.RegistrationFormPage;
 
@@ -31,14 +33,14 @@ public class BaseTest extends ObjectsRepo {
         driver.get(url);
         driver.manage().window().maximize();
     }
-    @BeforeMethod
+    @BeforeTest
     private static void testSetup(){
     launchAndNavigate();
     homePage = new HomePageObject();
         System.out.println("home: "+homePage);
         registrationPage = new RegistrationFormPage();
     }
-    @AfterMethod
+    @AfterTest
     private static void tearDown(){
         driver.quit();
     }
