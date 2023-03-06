@@ -6,9 +6,7 @@ import org.testng.annotations.Test;
 import testBase.BaseTest;
 import java.util.List;
 
-
 public class TextBoxTest extends BaseTest {
-
 
     @DataProvider
     public Object[][] getFormData(){
