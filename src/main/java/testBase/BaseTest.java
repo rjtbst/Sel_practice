@@ -44,11 +44,10 @@ public class BaseTest extends ObjectsRepo {
         home_page.clickOnPractice();
         practice_page = new PracticePageObject();
        practice_page.clickOnElementsBtn();
-
     }
     @AfterTest
-    public static void tearDown(){
+    public static void tearDown()
+    {
         driver.quit();
     }
-
 }
